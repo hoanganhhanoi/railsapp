@@ -33,17 +33,19 @@
           </ul>
           
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Tai khoan", "#" %></li>
-            <li><%= link_to "Dang ki", signup_path %></li>
-            <li class="dropdown">
-              <%= link_to "Dang nhap", "#", {"role" => "button", "aria-haspopup" => "true",
-                          "aria-expanded" => "false", "data-toggle" => "modal",
-                          "data-target" => "#registerModal"} %>
-              <!-- <a href="#" role="button" aria-haspopup="true" aria-expanded="false" data-toggle="modal" data-target="#registerModal">Dang nhap</a> -->
-            </li>
+            <% if logged_in? %>
+
+              <li><%= link_to "Tai khoan", current_user %></li>
+              <li><%= link_to "Dang xuat", logout_path, method: "delete" %></li>
+            <% else %>
+              <li><%= link_to "Dang ki", signup_path %></li>
+              <li><%= link_to "Dang nhap", login_path %></li>
+            <% end %>
           </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
     </nav>
   </div>
  
