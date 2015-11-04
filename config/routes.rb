@@ -19,6 +19,11 @@ Rails.application.routes.draw do
   # link to signup 
   get 'signup' => 'users#new'
 
+  #link to pages login
+  get    'login'  => 'sessions#new'
+  post   'login'  => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
+
   # Resource
   resources :users
   
