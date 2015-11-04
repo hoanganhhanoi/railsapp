@@ -20,3 +20,10 @@
 //= require bootstrap-sprockets
 //= require_tree .
 //= require_self
+
+
+<script>
+  $(document).ready(function() {
+    $.validate();
+  });
+</script>

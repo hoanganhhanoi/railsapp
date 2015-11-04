@@ -22,6 +22,7 @@
 
 .footer {
   clear: both;
+  margin-top: 20px;
   border-top: 1px solid #E7E7E7
 }
 
@@ -44,4 +45,31 @@ a:hover {
 .logo img {
   width: 80px;
   height: 50px;
+}
+
+@mixin box_sizing {
+  -moz-box-sizing:
+  border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:
+  border-box;
+}
+
+/* miscellaneous */
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+}
+
+/* signup */
+
+.signup h1 {
+  text-align: center;
+}
+
+.signup .btn-signup, .btn-back {
+  float: right;
+  margin-left: 5px;
 }
