@@ -1,0 +1,24 @@
+<!-- render error if condition true -->
+<%= render 'share/error_messages' %>
+
+<div class="form-group">
+  <%= f.label :name, "Your name" %>
+  <%= f.text_field :name, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :email, "E-mail address" %>
+  <%= f.email_field :email, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :password, "Password" %>
+  <%= f.password_field :password, class: "form-control"%>
+</div>
+
+<div class="form-group">
+  <%= f.label :password_confirmation, "Confirmation" %>
+  <%= f.password_field :password_confirmation, class: "form-control" %>
+</div>
+
+<%= link_to "Quay lai", root_path, class: "btn btn-primary btn-back" %>
