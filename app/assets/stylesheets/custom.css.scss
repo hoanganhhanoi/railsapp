@@ -65,11 +65,16 @@ a:hover {
 
 /* signup */
 
-.signup h1 {
+.signup h1, .login h1 {
   text-align: center;
 }
 
 .signup .btn-signup, .btn-back {
   float: right;
   margin-left: 5px;
+}
+
+/* login */
+.login p {
+  margin-top: 5px;
 }
