@@ -17,6 +17,13 @@
           <%= f.label :password, "Mat khau" %>
           <%= f.password_field :password, class: "form-control" %>
         </div>
+        
+        <div class="check-remember">
+          <%= f.label :remember_me, class: "checkbox inline" do %>
+            <%= f.check_box :remember_me %>
+            <span>Nho mat khau</span>
+          <% end %>
+        </div>
 
         <%= f.submit "Dang nhap", class: "btn btn-primary" %>
 
