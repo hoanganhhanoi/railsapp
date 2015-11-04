@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'users/new'
+
   # link to home page 
   root 'static_pages#home'
 
