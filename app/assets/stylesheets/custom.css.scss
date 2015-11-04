@@ -1,0 +1,47 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.app-border {
+  padding-left: 0px;
+  padding-right:0px;
+}
+
+.footer-details {
+
+}
+
+.content {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.support .title {
+  font-size: 20px;
+  border-bottom: 1px solid #E6E8EA;
+}
+
+.footer {
+  clear: both;
+  border-top: 1px solid #E7E7E7
+}
+
+.footer-details {
+  text-align: center;
+}
+
+.logo {
+  text-align: center;
+}
+
+a:focus {
+  outline: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.logo img {
+  width: 80px;
+  height: 50px;
+}
