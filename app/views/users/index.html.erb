@@ -6,9 +6,11 @@
   <div class="top-pagination">
     <%= will_paginate @user %>
   </div>
-  
-    <%= render user %>
-
+  <ul class="users">
+    <% @user.each do |user| %>
+      <%= render user %>
+    <% end %>
+  </ul>
   <div class="bottom-pagination">
     <%= will_paginate @user %>
   </div>
