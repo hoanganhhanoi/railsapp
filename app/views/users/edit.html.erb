@@ -1,17 +1,17 @@
-<!-- Set title, button-text -->
-<% provide(:title, 'Dang ki') %>
-<% provide(:button_text, 'Tao tai khoan') %>
+<!-- Set title and button text -->
+<% provide(:title, "Edit user") %>
+<% provide(:button_text, "Luu thay doi")%>
 
-<div class="signup">
-  <h1>Dang ki </h1>
+<div class="edit-user">
+  <h1>Cap nhat thong tin</h1>
 
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <%= form_for(@user) do |f| %>
 
-        <!-- render error if condition true -->
+        <!-- render errors messages if not validate  -->
         <%= render 'share/error_messages' %>
-        
+
         <div class="form-group">
           <%= f.label :name, "Your name" %>
           <%= f.text_field :name, class: "form-control" %>
@@ -32,8 +32,16 @@
           <%= f.password_field :password_confirmation, class: "form-control" %>
         </div>
 
-        <%= f.submit yield(:button_text), class: "btn btn-primary btn-signup" %>
+        <%= f.submit yield(:button_text), class: "btn btn-primary btn-edit" %>
         <%= link_to "Quay lai", root_path, class: "btn btn-primary btn-back" %>
+
       <% end %>
+
+      <div class="avatar_edit">
+        <%= avatar_user @user %>
+        <a href="http://gravatar.com/emails" target=_blank>Change</a>
+      </div>
+
+    </div>
   </div>
 </div>

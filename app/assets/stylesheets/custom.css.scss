@@ -65,11 +65,16 @@ a:hover {
 
 /* signup */
 
-.signup h1, .login h1 {
+.signup h1, .login h1, .edit-user h1 {
   text-align: center;
 }
 
 .signup .btn-signup, .btn-back {
+  float: right;
+  margin-left: 5px;
+}
+
+.edit-user .btn-edit, .btn-back {
   float: right;
   margin-left: 5px;
 }
@@ -86,4 +91,23 @@ a:hover {
 
 .check-remember span {
   margin-left: 20px;
+}
+
+.avatar_edit {
+  margin-top: 60px;
+}
+
+.list-user .users {
+  list-style: none;
+  margin: 0;
+}
+
+.list-user .users li {
+  overflow: auto;
+  padding: 10px 0;
+  border-bottom: 1px solid $gray-lighter;
+}
+
+.top-pagination, bottom-pagination {
+  text-align: center
 }

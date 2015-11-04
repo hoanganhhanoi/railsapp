@@ -1,0 +1,8 @@
+<ul class="users">
+  <% @user.each do |user| %>
+    <li>
+      <%= avatar_user(user,50) %> 
+      <%= link_to user.name, user %>
+    </li>
+  <% end %>
+</ul>

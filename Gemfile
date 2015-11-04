@@ -21,6 +21,11 @@ gem 'bcrypt', '3.1.7'
 gem 'jquery-form-validator-rails'
 # Use gem puma
 gem 'puma', '2.11.1'
+# Use faker
+gem 'faker', '1.4.2'
+# Pagination
+gem 'will_paginate', '3.0.7'
+gem 'bootstrap-will_paginate', '0.0.10'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

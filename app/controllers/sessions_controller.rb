@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       log_in user
       params[:session][:remember_me] == '1' ? remember_user(user) 
                                             : forget_user(user)
-      redirect_to user
+      redirect_back_or user
     else
       flash[:danger] = "Email hoac mat khau khong dung"
       render 'new'

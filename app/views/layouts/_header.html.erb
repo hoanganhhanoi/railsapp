@@ -35,7 +35,8 @@
           <ul class="nav navbar-nav navbar-right">
             <% if logged_in? %>
 
-              <li><%= link_to "Tai khoan", current_user %></li>
+              <li><%= link_to "Tai khoan", edit_user_path(current_user) %></li>
+              <li><%= link_to "Danh sach TV", users_path %></li>
               <li><%= link_to "Dang xuat", logout_path, method: "delete" %></li>
             <% else %>
               <li><%= link_to "Dang ki", signup_path %></li>

@@ -1,0 +1,15 @@
+<!-- Set title -->
+<% provide(:title, 'Danh sach thanh vien') %>
+
+<div class="list-user">
+  <h1>Danh sach thanh vien</h1>
+  <div class="top-pagination">
+    <%= will_paginate @user %>
+  </div>
+  
+    <%= render user %>
+
+  <div class="bottom-pagination">
+    <%= will_paginate @user %>
+  </div>
+</div>
