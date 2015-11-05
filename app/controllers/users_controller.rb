@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   # Find user with condition id
   def show
     @user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(page: params[:page])
   end
 
   # Edit inform user
