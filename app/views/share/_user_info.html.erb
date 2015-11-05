@@ -1,5 +1,7 @@
 
-<%= link_to avatar_user(current_user,50), current_user %>
-<h1><%= current_user.name %></h1>
-<span><%= link_to "Xem thong tin", current_user %></span>
-<span><%= pluralize(current_user.microposts.count, "micropost") %></span>
+<%= link_to avatar_user(current_user,80), current_user %>
+<div class="details">
+  <%= current_user.name %></br>
+  <span><%= link_to "Xem thong tin", current_user %></span> | 
+  <span><%= pluralize(current_user.microposts.count, " Bai dang") %></span>
+</div>
