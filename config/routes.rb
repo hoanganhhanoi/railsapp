@@ -24,6 +24,11 @@ Rails.application.routes.draw do
   post   'login'  => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
+  # link services weather
+  get    'weather' => 'weather_app#new'
+  post   'weather' => 'weather_app#create'
+
+
   # Resource
   resources :users
   resources :account_activations, only: [:edit]

@@ -1,0 +1,2 @@
+module WeatherAppHelper
+end

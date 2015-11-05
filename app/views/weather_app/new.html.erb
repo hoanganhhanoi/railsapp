@@ -1,0 +1,22 @@
+<h1>Xem thoi tiet hien tai cac thanh pho tren the gioi</h1>
+<%= form_tag weather_path, method: 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Tim", :name => nil %>
+  </p>
+<% end %>
+
+<% if !@data.nil? %>
+  
+  <p> 
+  <%= image_tag("http://openweathermap.org/img/w/#{@data['weather'][0]['icon']}.png", alt: "icon", class: "icon") %>
+  </p>
+  <p>Country: <%= @data['sys']['country'] %></p>
+  <p>Nhiet do: <%= @data['main']['temp_min'] %> - <%= @data['main']['temp_max'] %></p>
+  <p>Nhiet do hien tai: <%= @data['main']['temp'] %>°C</p>
+  <p>Chung:    <%= @data['weather'][0]['main'] %></p>
+  <p>Chi tiet: <%= @data['weather'][0]['description'] %></p>
+  <p>Suc gio:  <%= @data['wind']['speed'] %></p>
+  <p>Do am: <%= @data['main']['humidity'] %>%</p>
+
+<% end %>

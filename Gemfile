@@ -31,7 +31,9 @@ gem 'carrierwave', '0.10.0'
 
 gem 'mini_magick', '3.8.0'
 
-gem 'fog' 
+gem 'fog'
+# gem weather
+gem 'newgem', '0.1.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
