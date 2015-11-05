@@ -42,12 +42,13 @@ class User < ActiveRecord::Base
   end
 
   # Return true if token match digest
-  def authenticated?(remember_token)
+  def authenticated?(attribute, token)
     # if remember_digest is nil return false
-    if remember_digest.nil?
+    digest = send("#{attribute}_digest")
+    if digest.nil?
       return false
     else
-      BCrypt::Password.new(remember_digest).is_password?(remember_token)
+      BCrypt::Password.new(digest).is_password?(token)
     end
   end
 
@@ -62,8 +63,20 @@ class User < ActiveRecord::Base
     self.activation_digest = User.digest(activation_token) 
   end
 
+  # convert email
   def downcase_email
     self.email = email.downcase
+  end
+
+  # Active account
+  def activate
+    update_attribute(:activated,    true)
+    update_attribute(:activated_at, Time.zone.now)
+  end
+
+  # Send email activation 
+  def send_activation_email
+    UserMailer.account_activation(self).deliver_now
   end
 
 end
