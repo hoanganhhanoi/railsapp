@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+
+  has_many :microposts, dependent: :destroy
   # avaiable remember_token
   attr_accessor :remember_token, :activation_token, :reset_token
 
