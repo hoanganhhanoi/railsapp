@@ -180,3 +180,35 @@ span.picture {
   margin-left: 25%;
   padding: 17px;
 }
+
+.data-weather img {
+  width: 60px;
+  height: 60px;
+}
+
+.data-weather {
+  font-size: 30px;
+}
+
+.table-weather h3, .future-weather h3 {
+  font-size: 40px;
+}
+
+.data-details {
+  padding-top: 5px;
+  margin-top: 10px;
+  text-align: center;
+  float: left;
+  border-top:1px solid #E7E7E7;
+}
+
+.form-search #search {
+  height: 47px;
+  width: 91%;
+}
+
+.form-search .btn-form-search {
+  position: absolute;
+  border-radius: 0 6px 6px 0;
+  border-left: medium none;
+}

@@ -15,15 +15,9 @@
 
 
 //= require jquery
+//= require jquery.validate
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
 //= require_self
-
-
-<script>
-  $(document).ready(function() {
-    $.validate();
-  });
-</script>

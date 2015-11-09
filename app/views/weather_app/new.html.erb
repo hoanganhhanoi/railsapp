@@ -1,22 +1,86 @@
 <h1>Xem thoi tiet hien tai cac thanh pho tren the gioi</h1>
 <%= form_tag weather_path, method: 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Tim", :name => nil %>
-  </p>
+  <div class="col-sm-6 input-group form-search">
+    <%= text_field_tag :search, params[:search], class: "form-control input-lg pull-left", 
+                                placeholder: "Dien ten thanh pho" %>
+    <%= button_tag "", type: 'submit', 
+    class: "btn btn-default btn-lg btn-form-search glyphicon glyphicon-search" %>
+  </div>
 <% end %>
 
-<% if !@data.nil? %>
-  
-  <p> 
-  <%= image_tag("http://openweathermap.org/img/w/#{@data['weather'][0]['icon']}.png", alt: "icon", class: "icon") %>
-  </p>
-  <p>Country: <%= @data['sys']['country'] %></p>
-  <p>Nhiet do: <%= @data['main']['temp_min'] %> - <%= @data['main']['temp_max'] %></p>
-  <p>Nhiet do hien tai: <%= @data['main']['temp'] %>°C</p>
-  <p>Chung:    <%= @data['weather'][0]['main'] %></p>
-  <p>Chi tiet: <%= @data['weather'][0]['description'] %></p>
-  <p>Suc gio:  <%= @data['wind']['speed'] %></p>
-  <p>Do am: <%= @data['main']['humidity'] %>%</p>
+<% unless @data.nil?%>
+  <div class="col-md-4 table-weather">
+  <% unless @data["current"].nil? 
+    data_current = @data["current"] %>
+    <h3>Country: <%= data_current.xpath("//city/country").text %></h3>
+    <div class="data-weather">
+      <%= image_tag(data_current.xpath("//weather/@icon"), alt: "icon", class: "icon") %>
+      <%= data_current.xpath("//temperature/@value").text %>°C
+    </div>
+    <p>Current: <%= data_current.xpath("//weather/@value").text %></p>
+    <p>Get at:  <%= data_current.xpath("//lastupdate/@value").text %></p>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <tr>
+          <td>Temperature</td>
+          <td><%= data_current.xpath("//temperature/@min").text %>°C - 
+              <%= data_current.xpath("//temperature/@max").text %>°C</td>
+        </tr>
+        <tr>
+          <td>Wind</td>
+          <td><%= data_current.xpath("//wind/speed/@value").text %>m/s - 
+            <%= data_current.xpath("//wind/speed/@name")%></td>
+        </tr>
+        <tr>
+          <td>Cloudiness</td>
+          <td><%= data_current.xpath("//clouds/@name").text %></td>
+        </tr>
+        <tr>
+          <td>Pressure</td>
+          <td><%= data_current.xpath("//pressure/@value") %> 
+              <%= data_current.xpath("//pressure/@unit") %></td>
+        </tr>
+        <tr>
+          <td>Humidity</td>
+          <td><%= data_current.xpath("//humidity/@value").text %>%</td>
+        </tr>
+        <tr>
+          <td>Sunrise</td>
+          <td><%= data_current.xpath("//sun/@rise")%></td>
+        </tr>
+        <tr>
+          <td>Sunset</td>
+          <td><%= data_current.xpath("//sun/@set")%></td>
+        </tr>
+        <tr>
+          <td>Geo Coords</td>
+          <td>[<%= data_current.xpath("//city/coord/@lon").text %>,
+               <%= data_current.xpath("//city/coord/@lat").text%>]</td>
+        </tr>
+      </table>
+    </div>
+  <% else %>
+    <%= render 'table_data'%>
+  <% end %>
+  </div>
 
+  <div class="col-md-8 future-weather">
+    <h3> 
+      Next 
+      <%
+        count = @data["future"].xpath("//forecast/time").count 
+        if count > 1 
+          day = "days"
+        else
+          day = "day"
+        end
+      %> 
+      <%= "#{count} #{day}"%>
+    </h3>
+    <div class="future-data">
+      <% unless @data["future"].nil? %> 
+        <%= render 'future_weather' %>
+      <% end %>
+    </div>
+  </div>
 <% end %>

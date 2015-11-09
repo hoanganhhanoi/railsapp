@@ -1,0 +1,18 @@
+<%
+  data_future = @data["future"] 
+  data_future.xpath("//forecast/time").each do |value| %>
+  <div class="data-details col-md-2">
+    <p><%= value.xpath("@day") %></p>
+    <%= image_tag(value.xpath("symbol/@var"), alt: "icon", class: "icon")%>
+    <div class="temperature">
+      <%= value.xpath("temperature/@day").text %>°C
+    </div>
+    <div class="wind">
+      <%= value.xpath("windSpeed/@mps").text %>m/s
+    </div>
+    <div class="pressure">
+      <%= value.xpath("pressure/@value").text %> 
+      <%= value.xpath("pressure/@unit").text %>
+    </div>
+  </div>
+<% end %>
